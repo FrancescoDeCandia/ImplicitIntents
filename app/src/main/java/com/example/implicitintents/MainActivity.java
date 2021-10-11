@@ -28,34 +28,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openWebsite(View view) {
-        // Get the URL text.
         String url = mWebsiteEditText.getText().toString();
-        // Parse the URI and create the intent.
         Uri webpage = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
-        startActivity(intent);
-        // Find an activity to hand the intent and start that activity.
-        /*if (intent.resolveActivity(getPackageManager()) != null) {
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         } else {
             Log.d("ImplicitIntents", "Can't handle this!");
-        }*/
+        }
+        //startActivity(intent);
     }
 
     public void openLocation(View view) {
-        // Get the string indicating a location. Input is not validated; it is
-        // passed to the location handler intact.
         String loc = mLocationEditText.getText().toString();
-        // Parse the location and create the intent.
         Uri addressUri = Uri.parse("geo:0,0?q=" + loc);
         Intent intent = new Intent(Intent.ACTION_VIEW, addressUri);
-        startActivity(intent);
-        // Find an activity to handle the intent, and start that activity.
-        /*if (intent.resolveActivity(getPackageManager()) != null) {
+        //startActivity(intent);
+        if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         } else {
             Log.d("ImplicitIntents", "Can't handle this intent!");
-        }*/
+        }
     }
 
     public void shareText(View view) {
